@@ -28,7 +28,7 @@ def calcular_irrf(salario, dependentes):
     else:
         return base_calculo * 0.275 - 896.00
 
-def calcular_vale_transporte(salario, optou):
+def calcular_vale_transporte(salario):
        
     if vale_transporte == 's':
         return salario * 0.06 
@@ -46,28 +46,28 @@ def calcular_plano_saude(dependentes):
 matricula = input("Digite sua matrícula: ")
 senha = input("Digite sua senha: ")
 
-salario_base = float(input("Informe o salário base: "))
-dependentes = int(input("Informe a quantidade de dependentes: "))
+salario = float(input("Qual seu salário base?: "))
+dependentes = int(input("Quantos dependentes você possui?: "))
 vale_transporte = input("Deseja receber vale transporte?\n Responda com 's' ou 'n': ").lower()
-valor_vale_refeicao = float(input("Informe o valor do vale refeição: "))
+valor_vale_refeicao = float(input("Qual valor do vale refeição?: "))
 
 
-desconto_inss = calcular_inss(salario_base)
-desconto_irrf = calcular_irrf(salario_base, dependentes)
-desconto_vt = calcular_vale_transporte(salario_base, vale_transporte)
-desconto_vr = calcular_vale_refeicao(valor_vale_refeicao)
-desconto_saude = calcular_plano_saude(dependentes)
+dsc_inss = calcular_inss(salario)
+dsc_irf = calcular_irrf(salario, dependentes)
+dsc_vte = calcular_vale_transporte(salario, vale_transporte)
+dsc_vr = calcular_vale_refeicao(valor_vale_refeicao)
+dsc_saude = calcular_plano_saude(dependentes)
 
-total_descontos = desconto_inss + desconto_irrf + desconto_vt + desconto_vr + desconto_saude
-salario_liquido = salario_base - total_descontos
+total_descontos = dsc_inss + dsc_irf + dsc_vte + dsc_vr + dsc_saude
+salario_liquido = salario - total_descontos
 
 
 print(f"Matrícula: {matricula}")
-print(f"Salário Base: {salario_base:.2f}")
-print(f"Desconto Iss: {desconto_inss:.2f}")
-print(f"Desconto Irff: {desconto_irrf:.2f}")
-print(f"Desconto Vale Transporte: {desconto_vt:.2f}")
-print(f"Desconto Vale Refeição: {desconto_vr:.2f}")
-print(f"Desconto Plano de Saúde: {desconto_saude:.2f}")
+print(f"Salário Base: {salario:.2f}")
+print(f"Desconto Iss: {dsc_inss:.2f}")
+print(f"Desconto Irff: {dsc_irf:.2f}")
+print(f"Desconto Vale Transporte: {dsc_vte:.2f}")
+print(f"Desconto Vale Refeição: {dsc_vr:.2f}")
+print(f"Desconto Plano de Saúde: {dsc_saude:.2f}")
 print(f"Total de Descontos: {total_descontos:.2f}")
 print(f"Salário Líquido: {salario_liquido:.2f}")
