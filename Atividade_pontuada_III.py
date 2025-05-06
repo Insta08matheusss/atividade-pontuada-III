@@ -46,10 +46,10 @@ def calcular_plano_saude(dependentes):
 matricula = input("Digite sua matrícula: ")
 senha = input("Digite sua senha: ")
 
-salario_base = float(input("Informe o salário base (R$): "))
+salario_base = float(input("Informe o salário base: "))
 dependentes = int(input("Informe a quantidade de dependentes: "))
 vale_transporte = input("Deseja receber vale transporte?\n Responda com 's' ou 'n': ").lower()
-valor_vale_refeicao = float(input("Informe o valor do vale refeição fornecido pela empresa (R$): "))
+valor_vale_refeicao = float(input("Informe o valor do vale refeição: "))
 
 
 desconto_inss = calcular_inss(salario_base)
